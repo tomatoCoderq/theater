@@ -21,7 +21,7 @@ func main() {
 	bot.Debug = true //set outputing of all technical information related to bot-api
 
 	updateConfig := tgbotapi.NewUpdate(0) //to know number of values handled
-	updateConfig.Timeout = 30
+	updateConfig.Timeout = 10
 
 	playsRead, readerr := os.ReadFile("plays.json")
 	if readerr != nil {
@@ -56,7 +56,7 @@ func main() {
 	//Checking every 30 minutes changes on the web-page
 	go func() {
 		for {
-			gocron.Every(30).Minutes().Do(checkUpdates, &playsGet, bot)
+			gocron.Every(10).Seconds().Do(checkUpdates, &playsGet, bot)
 			<-gocron.Start()
 			log.Println("HERE?")
 		}

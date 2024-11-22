@@ -78,7 +78,7 @@ func scrapping() []Play {
 
 	c := colly.NewCollector() //main object to work with colly scrapper
 	// c.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
-	c.SetRequestTimeout(30)
+	// c.SetRequestTimeout(40)
 
 	c.OnError(func(e *colly.Response, err error) {
 		log.Panicln("Following error occured during scrapping: ", err)
@@ -94,7 +94,7 @@ func scrapping() []Play {
 
 		day, err := strconv.Atoi(e.ChildText("div.date")) //obtaining day of specific play
 		if err != nil {
-			log.Panicln("Error occured during casting form ascii to int")
+			log.Panicln("Error occured during casting from ascii to int")
 		}
 
 		//if play is relevant (play is NOT outdated) add to slice of scrapped plays
