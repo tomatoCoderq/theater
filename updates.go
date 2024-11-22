@@ -7,7 +7,6 @@ import (
 	"strconv"
 	"strings"
 	"time"
-
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	// "time"
 	// "github.com/sirupsen/logrus"
@@ -69,9 +68,7 @@ func start(update tgbotapi.Update, bot *tgbotapi.BotAPI) {
 }
 
 func checkUpdates(playsGet *[]Play, bot *tgbotapi.BotAPI) {
-	// fmt.Println("Here")
 	playsScrapped := scrapping()
-	playsScrapped = append(playsScrapped, Play{"a", "b", "c", 10, 12})
 
 	log.Println("Последняя постановка (собранная):", playsScrapped[len(playsScrapped)-1])
 	log.Println("Последняя постановка (из playsGet):", (*playsGet)[len(*playsGet)-1])
