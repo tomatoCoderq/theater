@@ -14,7 +14,7 @@ var playsGet []Play
 func main() {
 	log.SetFlags(log.Lshortfile | log.Ldate | log.Ltime | log.Lmsgprefix) //logger setting
 
-	bot, err := tgbotapi.NewBotAPI("6115886452:AAGgRk9mEHlI7hJsF4LU_fUIMbV7ZygDowc") // bot setting
+	bot, err := tgbotapi.NewBotAPI("BOTID") // bot setting
 	if err != nil {
 		log.Panicln(err) //handling possible error
 	}
